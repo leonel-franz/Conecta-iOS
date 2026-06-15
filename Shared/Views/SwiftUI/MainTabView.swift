@@ -1,6 +1,6 @@
 //
 //  MainTabView.swift
-//  MovilCliente (iOS)
+//  MovilCliente
 //
 //  Created by Leonel on 12/06/26.
 //
@@ -11,14 +11,14 @@ struct MainTabView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @State private var selectedTab = 0
     
-    // Configuración de colores basada en la identidad visual de Conecta
+    // Configuración de color corporativo Conecta
     private let primaryColor = Color(red: 0.17, green: 0.62, blue: 0.70) // #2B9EB3
     
     var body: some View {
         TabView(selection: $selectedTab) {
             // Pestaña 1: Inicio (Dashboard) - SwiftUI
             NavigationView {
-                Text("Dashboard de Conecta") // Espacio para DashboardScreen
+                DashboardView() // Enlazado con tu Dashboard nativo
                     .navigationTitle("Inicio")
             }
             .tabItem {
@@ -27,9 +27,9 @@ struct MainTabView: View {
             }
             .tag(0)
             
-            // Pestaña 2: Servicios contratados - SwiftUI
+            // Pestaña 2: Servicios contratados - SwiftUI (REEMPLAZADO COMPLETO)
             NavigationView {
-                Text("Listado de Servicios") // Espacio para ServiciosScreen
+                ServiciosView()
                     .navigationTitle("Mis Servicios")
             }
             .tabItem {
@@ -53,7 +53,7 @@ struct MainTabView: View {
             
             // Pestaña 4: Facturación y Pagos - SwiftUI
             NavigationView {
-                Text("Historial de Facturas") // Espacio para PagosScreen
+                Text("Historial de Facturas")
                     .navigationTitle("Pagos")
             }
             .tabItem {
@@ -62,11 +62,11 @@ struct MainTabView: View {
             }
             .tag(3)
         }
-        .accentColor(primaryColor) // Aplica el color de la marca a los iconos activos
+        .accentColor(primaryColor)
     }
 }
 
-// Representable provisional para compilar sin errores la pestaña híbrida de UIKit
+// Representable provisional para soporte de compilación cruzada UIKit
 struct TicketsViewControllerRepresentable: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
         let container = UIViewController()

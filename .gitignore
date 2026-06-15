@@ -1,0 +1,11 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcworkspace
+xcuserdata/
+.DS_Store
+
+# Archivos temporales de React Native antiguos por si acaso
+node_modules/
+.expo/

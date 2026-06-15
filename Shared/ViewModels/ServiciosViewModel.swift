@@ -1,6 +1,6 @@
 //
 //  ServiciosViewModel.swift
-//  MovilCliente (iOS)
+//  MovilCliente
 //
 //  Created by Leonel on 12/06/26.
 //
@@ -29,7 +29,7 @@ class ServiciosViewModel: ObservableObject {
         } catch let error as NetworkError {
             self.errorMessage = error.localizedDescription
         } catch {
-            self.errorMessage = error.localizedDescription
+            self.errorMessage = "Ocurrió un error al procesar los datos."
         }
         self.isLoading = false
     }
